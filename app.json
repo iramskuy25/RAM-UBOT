@@ -86,18 +86,6 @@
       "value": "False",
       "required": true
     },
-    "YOUTUBE_API_KEY": {
-      "description": "YouTube Data API Key for .yt command. Get from https://console.cloud.google.com",
-      "required": false
-    },
-    "OCR_SPACE_API_KEY": {
-      "description": "OCR API Key for .ocr command. Get from https://ocr.space/ocrapi",
-      "required": false
-    },
-    "REM_BG_API_KEY": {
-      "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
-      "required": false
-    },
     "ANTI_SPAMBOT": {
       "description": "Kicks spambots from groups after they join. [Requires admin powers in groups to kick.]",
       "value": "False"
@@ -119,27 +107,9 @@
       "value": "True",
       "required": true
     },
-    "BIO_PREFIX": {
-      "description": "Prefix for Last.FM Module Bio.",
-      "required": false
-    },
-    "DEFAULT_BIO": {
-      "description": "Default Bio Mu.",
-      "value": "🌟RAM-UBOT🌟",
-      "required": false
-    },
     "ALIVE_NAME": {
       "description": "Nama untuk menunjukan pesan .alive",
       "required": true
-    },
-    "IG_ALIVE": {
-      "description": "Taro link ig lu disini Biar Lu bisa mutualan .gi",
-      "required": false
-    },
-    "RAM_TEKS_KOSTUM": {
-      "description": "Kustom Pesan Alive Mu Untuk Perintah .ram (Isi Terserah)",
-      "value": "ㅤ",
-      "required": false
     },
     "S_PACK_NAME": {
       "description": "Nama Sticker Pack Mu",

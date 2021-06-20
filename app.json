@@ -50,14 +50,6 @@
       "value": "-1001122897608",
       "required": true
     },
-    "QUOTES_API_TOKEN": {
-      "description": "Dapatkan Token Dari http://antiddos.systems",
-      "required": false
-    },
-    "MONGO_URI": {
-      "description": "Your MongoDB Atlas URL, Get your guide from https://telegra.ph/Mongo-DB-12-24.",
-      "required": false
-    },
     "COUNTRY": {
       "description": "Set your Country to be used in the .time and .date commands.",
       "value": "ID",

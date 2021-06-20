@@ -50,15 +50,6 @@
       "value": "-1001122897608",
       "required": true
     },
-    "BOTLOG_MSG": {
-      "description": "Buat Pesan Botlog Mu sendiri Ya ngentot.",
-      "value": "║RAM-UBOT TELAH AKTIF!║\n\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\nJika Tidak Bisa Di .ping\nSilahkan Anda Cek Viewlogs\nPada heroku Anda.\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰.",
-      "required": false
-    },
-    "CONSOLE_LOGGER_VERBOSE": {
-      "description": "If you need verbosity on the console logging",
-      "value": "False"
-    },
     "QUOTES_API_TOKEN": {
       "description": "Dapatkan Token Dari http://antiddos.systems",
       "required": false
@@ -71,15 +62,6 @@
       "description": "Set your Country to be used in the .time and .date commands.",
       "value": "ID",
       "required": true
-    },
-    "TZ_NUMBER": {
-      "description": "Change this value in case your country has multiple Time Zones.",
-      "value": "1",
-      "required": false
-    },
-    "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
-      "required": false
     },
     "PM_AUTO_BAN": {
       "description": "Ini berguna Untuk Mengaktifkan pesan otomatis di room chat anda.",

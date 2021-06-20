@@ -587,7 +587,7 @@ with bot:
                                        "t.me/GeezSupportGroup")],
                         [Button.url(f"EMOJI_HELP}OWNER{EMOJI_HELP} ",
                                     f"{OWNER_BOT}"),
-                            Button.url(f"{EMOJI_HELPINSTAGRAM{EMOJI_HELP} ",
+                            Button.url(f"{EMOJI_HELP}INSTAGRAM{EMOJI_HELP} ",
                                    f"{IG_ALIVE}")],
                         [custom.Button.inline(
                             f"{EMOJI_HELP}𝗘𝗫𝗜𝗧{EMOJI_HELP}", b"close")],

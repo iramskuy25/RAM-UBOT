@@ -443,8 +443,26 @@ async def typewriter(typew):
     await typew.edit("`Assalamu'alaikum`")
     sleep(3)
     await typew.edit("**YANG GA JAWAB, FIX ATHEISS!!**")
-# Create by myself @localheart
+   # Create by myself @ram-ubot
 
+@register(outgoing=True, pattern='^.gblk(?: |$)(.*)')
+async def typewriter(typew):
+    typew.pattern_match.group(1)
+    await typew.edit("WOI GOBLOK!!!")
+    sleep(2)
+    await typew.edit("KOK LU GOBLOK BANGET SIH ANJING")
+    sleep(2)
+    await typew.edit("UDAH DI SIA SIA IN, DAN GA DI ANGGAP")
+    sleep(2)
+    await typew.edit("MASIH AJA LU PERTAHANIN, GOBLOK!!!!")
+    sleep(2)
+    await typew.edit("UDAH LAH ANJING,GAOSAH KAYA GTU")
+    sleep(2)
+    await typew.edit("JAUHIN AJA AJG, BOCAH KYA DIA MAH")
+    sleep(2)
+    await typew.edit("TINGGALIN AJA YA AJG!!!!")
+    
+    
 CMD_HELP.update({
     "memes9":
     "`.gabut` ; `.orgil`\
@@ -457,6 +475,6 @@ CMD_HELP.update({
     "memes10":
     "`.cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
-    \n\n`.sange`\
-    \nUsage: untuk jadi buaya."
+    \n\n`.sange` ;  `.gblk`\
+    \nUsage: cobalah sndiri ngentot."
 })

@@ -63,4 +63,4 @@ TERIMAKASIH UNTUK
 
 *   [VICKY](https://github.com/vckyou) - ⚡Geez-Userbot⚡
 *   [KOALA](https://github.com/manusiarakitan) - KAMPANG BOT
-DAN MASIH BANYAK LAGI TOT
+*    DAN MASIH BANYAK LAGI TOT

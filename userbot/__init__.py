@@ -432,7 +432,7 @@ def paginate_help(page_number, loaded_modules, prefix):
                     "< ̤< ̤", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "🌟𝗖𝗟𝗢𝗦𝗘🌟", data="{}_close({})".format(prefix, modulo_page)
+                    f"{EMOJI_HELP}𝗖𝗟𝗢𝗦𝗘{EMOJI_HELP}", data="{}_close({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
                     "> ̤> ̤", data="{}_next({})".format(prefix, modulo_page)
@@ -583,14 +583,14 @@ with bot:
                         [
                             Button.url(f"{REPO_NAME}",
                                        "t.me/ramubotinfo"),
-                            Button.url("•SUPPORT• ", 
+                            Button.url(f"{EMOJI_HELP}SUPPORT{EMOJI_HELP} ", 
                                        "t.me/GeezSupportGroup")],
-                        [Button.url("•OWNER• ",
+                        [Button.url(f"EMOJI_HELP}OWNER{EMOJI_HELP} ",
                                     f"{OWNER_BOT}"),
-                            Button.url("•INSTAGRAM• ",
+                            Button.url(f"{EMOJI_HELPINSTAGRAM{EMOJI_HELP} ",
                                    f"{IG_ALIVE}")],
                         [custom.Button.inline(
-                            "🔥𝗘𝗫𝗜𝗧🔥", b"close")],
+                            f"{EMOJI_HELP}𝗘𝗫𝗜𝗧{EMOJI_HELP}", b"close")],
                     ]
                 )
 
@@ -648,7 +648,7 @@ with bot:
 
         @tgbot.on(events.CallbackQuery(data=b"close"))
         async def close(event):
-            await event.edit("DAH ABIS ABANG NYA MAU PULANG!", buttons=Button.clear())
+            await event.edit("Menu di tutup!\nUntuk Melihat Menu, Silahkan Ketik `.helpme`", buttons=Button.clear())
 
 
     except BaseException:

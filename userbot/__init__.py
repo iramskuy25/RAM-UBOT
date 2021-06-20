@@ -585,7 +585,7 @@ with bot:
                                        "t.me/ramubotinfo"),
                             Button.url(f"{EMOJI_HELP}SUPPORT{EMOJI_HELP} ", 
                                        "t.me/GeezSupportGroup")],
-                        [Button.url(f"EMOJI_HELP}OWNER{EMOJI_HELP} ",
+                        [Button.url(f"{EMOJI_HELP}OWNER{EMOJI_HELP} ",
                                     f"{OWNER_BOT}"),
                             Button.url(f"{EMOJI_HELP}INSTAGRAM{EMOJI_HELP} ",
                                    f"{IG_ALIVE}")],

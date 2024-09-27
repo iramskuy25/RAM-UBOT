@@ -27,12 +27,12 @@ logging.basicConfig(
     level=logging.WARNING)
 
 
-@register(outgoing=True, pattern=r"^\.helpme")
+@register(outgoing=True, pattern=r"^\.rhelp")
 async def yardim(event):
     try:
         tgbotusername = BOT_USERNAME
         if tgbotusername is not None:
-            results = await event.client.inline_query(tgbotusername, "@UserButt")
+            results = await event.client.inline_query(tgbotusername, "@Ram_ubot")
             await results[0].click(
                 event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
             )
@@ -43,5 +43,5 @@ async def yardim(event):
             )
     except Exception:
         return await event.edit(
-            "`Anda tidak dapat mengirim hasil sebaris dalam obrolan ini (disebabkan oleh Permintaan Hasil Bot Sebaris)`"
+            "`Anda tidak dapat Menggunakan Perintah Helpme, Bisa Jadi Grup Ini tidak Mensupport nya (Mungkin Anda Belum Menghidupakan Inline Mode Dan Inline Location Data)`"
         )

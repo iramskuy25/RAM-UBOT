@@ -1,4 +1,4 @@
-<a href="https://www.instagram.com/ramadh20?r=nametag"><img src="https://images.cooltext.com/5534445.png" width="516" height="211" alt="  RAM-UBOT" /></a>
+<a href="https://www.instagram.com/ramadh20?r=nametag"><img src="https://images.cooltext.com/5537105.png" width="320" height="211" alt="  RAM-UBOT" /></a>
 
 <p align="center">
   <a href="https://github.com/ramadhani892/RAM-UBOT/fork">
@@ -14,27 +14,30 @@
 
 <a href="https://t.me/ramubotspam"><img src="https://img.shields.io/badge/KODE%20PENILAIAN-A+-blue.svg?style=for-the-badge&logo=Factor.">
 
-## Pemilik Repo: ラマダン
-[<img src="https://media0.giphy.com/media/ya4eevXU490Iw/giphy.gif">](https://t.me/maafgausahsokap)
-##
-##
+## Pemilik Repo: Landak 🦔
+[<img src="https://media.giphy.com/media/o97Wl6qaoJytXcppUj/giphy.gif">](https://t.me/maafgausahsokap)
+
+  
+  
+  
+  
 # KALO FORK TUH KASIH BINTANG YA TOLOL!
 
 
 ## JOIN DULU TOT!!:
 
-<a href="https://t.me/ramubotinfo"><img src="https://img.shields.io/badge/Channel-%20RAM UBOT-black.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://t.me/ramubotinfo"><img src="https://img.shields.io/badge/Channel%20RAM%20UBOT-red.svg?style=for-the-badge&logo=Telegram"></a>
 <a href="https://t.me/teman_random"><img src="https://img.shields.io/badge/Join-TEMAN%20RANDOM-purple.svg?style=for-the-badge&logo=Telegram"></a>
 ##
 
 # JANGAN BINGUNG BUAT DEPLOY!
-[![Deploy](https://telegra.ph/file/be5a4a2cb6aac37ca7945.jpg)](https://t.me/ootspambot)
+[![Deploy](https://telegra.ph/file/be5a4a2cb6aac37ca7945.jpg)](https://t.me/OOTSPAMBOTT)
 
 
-<h3 align="center">REPO RAM-UBOT DIBUAT KARNA LAGI GABUT AJA SI HAHA.</h3>
+<h3 align="center">REPO RAM UBOT DIBUAT KARNA YAA MEMANG PENGEN DIBUAT WKWKWK.</h3>
 <p align="center">&nbsp;</p>
 
-
+### <a href="https://t.me/ootspambot"><img src="https://img.shields.io/badge/GROUP%20SPAM%20RAM%20UBOT-blue?style=flat&logo=Telegram" width="250" height="40.100" />
 
 
 ## Bagaimana Cara Deploy?
@@ -53,7 +56,7 @@
 ##
 ##
 
-<a href="https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT.git"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=flat&logo=Heroku" width="325" height="50.100" />
+<a href="https://heroku.com/deploy?template=https://github.com/ramadhani892/RAM-UBOT.git"><img src="https://img.shields.io/badge/DEPLOY%20RAM%20UBOT-red?style=flat&logo=Heroku" width="325" height="50.100" />
 
 <br>
 </p>
@@ -62,17 +65,5 @@
 TERIMAKASIH UNTUK
 
 *   [VICKY](https://github.com/vckyou) - ⚡Geez-Userbot⚡
-*   [RaphielGang](https://github.com/RaphielGang) - Telegram-Paperplane
-*   [AvinashReddy3108](https://github.com/AvinashReddy3108) - PaperplaneExtended
-*   [Mkaraniya](https://github.com/mkaraniya) & [Dev73](https://github.com/Devp73) - OpenUserBot
-*   [Mr.Miss](https://github.com/keselekpermen69) - UserButt
-*   [adekmaulana](https://github.com/adekmaulana) - ProjectBish
-*   [MoveAngel](https://github.com/MoveAngel) - One4uBot
-*   [AidilAryanto](https://github.com/aidilaryanto) - ProjectDils 
-*   [Alfianandaa](https://github.com/alfianandaa/ProjectAlf) - ProjectAlf
-*   [AnggaR69s](https://github.com/GengKapak/DCLXVI) - DCLXVI
-*   [kandnub](https://github.com/kandnub) - TG-UserBot
-*   [༺αиυвιѕ༻](https://github.com/Dark-Princ3) - X-tra-Telegram
-*   [Sahyam2019](https://github.com/sahyam2019/oub-remix) - oub-remix
-*   [TeamUserge](https://github.com/UsergeTeam/Userge) - Userge
-*   DAN BANYAK LAGI 
+*   [KOALA](https://github.com/manusiarakitan) - KAMPANG BOT
+*    DAN MASIH BANYAK LAGI TOT

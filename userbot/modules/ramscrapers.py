@@ -53,7 +53,6 @@ from userbot import (
     BOTLOG_CHATID,
     CMD_HELP,
     TEMP_DOWNLOAD_DIRECTORY,
-    WOLFRAM_ID,
     LOGS,
     GOOGLE_CHROME_BIN,
     CHROME_DRIVER,
@@ -189,7 +188,7 @@ async def img_sampler(event):
         lim = lim.replace("lim=", "")
         query = query.replace("lim=" + lim[0], "")
     except IndexError:
-        lim = 5
+        lim = 8
     gi = googleimagesdownload()
 
     # creating list of arguments

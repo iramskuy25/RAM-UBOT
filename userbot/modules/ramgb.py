@@ -1,22 +1,21 @@
-# Piki Ganteng
-# modified by @VckyouuBitch
-
+# GAUSAH KESINI ANJING NGENTOT
+# BUATAN VCKYOUUU
 
 import io
 import textwrap
 
-from PIL import Image, ImageDraw, ImageFont
 
+from PIL import Image, ImageDraw, ImageFont
 from userbot import CMD_HELP
 from userbot.events import register
 
 
 @register(outgoing=True, pattern=r"^\.rgb (.*)")
-async def sticklet(event):
+async def stext(event):
     sticktext = event.pattern_match.group(1)
 
     if not sticktext:
-        await event.edit("`Saya Perlu Teks Untuk Menempel!`")
+        await event.edit("`Mohon Maaf, Saya Membutuhkan Text Anda.`")
         return
 
     await event.delete()
@@ -26,15 +25,15 @@ async def sticklet(event):
 
     image = Image.new("RGBA", (512, 512), (255, 255, 255, 0))
     draw = ImageDraw.Draw(image)
-    fontsize = 230
+    fontsize = 220
     font = ImageFont.truetype(
-        "userbot/files/RobotoMono-Regular.ttf",
+        "userbot/RobotoMono-Regular.ttf",
         size=fontsize)
 
     while draw.multiline_textsize(sticktext, font=font) > (512, 512):
         fontsize -= 3
         font = ImageFont.truetype(
-            "userbot/files/RobotoMono-Regular.ttf",
+            "userbot/RobotoMono-Regular.ttf",
             size=fontsize)
 
     width, height = draw.multiline_textsize(sticktext, font=font)
@@ -52,10 +51,9 @@ async def sticklet(event):
 
     await event.client.send_file(event.chat_id, image_stream)
 
-# Cape Cape Aku port Jgn hapus credits Ya Bgst
 
 CMD_HELP.update({
-    'rgb':
-    ".rgb <text>"
-    "\nUsage: Ubah teks menjadi stiker."
+    'ramgb':
+    "𝘾𝙤𝙢𝙢𝙖𝙣𝙙: `.rgb` <text>"
+    "\nUsage: Mengubah Teks/Kata-Kata, Menjadi Stiker Anda."
 })

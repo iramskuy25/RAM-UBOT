@@ -1,6 +1,6 @@
 # RAM-UBOT
 from time import sleep
-from userbot import ALIVE_NAME, CMD_HELP, bot
+from userbot import ALIVE_NAME, CMD_HELP, IG_ALIVE, REPO_NAME, bot
 from userbot.events import register
 from telethon import events
 import asyncio
@@ -278,8 +278,7 @@ async def typewriter(typew):
     sleep(2)
     await typew.edit("`Proses Global banned...✅`")
     sleep(3)
-    await typew.edit("╭✠╼━━━━━━❖━━━━━━━✠\n┣• **Perintah:** `BAPAKLO`\n┣• **Pengguna:** DIRILO\n┣• **Aksi:** `MENCORENG NAMA LO DARI KK`\n╰✠╼━━━━━━❖━━━━━━━✠")
-
+    await typew.edit(f"╭✠╼━━━━━━❖━━━━━━━✠\n┣• **TUAN:** `{ALIVE_NAME}`\n┣• **PIBOONG:** [INSTAGRAM]({IG_ALIVE})\n┣• **Aksi:** `PROMOSI`\n╰✠╼━━━━━━❖━━━━━━━✠")
 
 @register(outgoing=True, pattern='^.gkck(?: |$)(.*)')
 async def typewriter(typew):
@@ -367,7 +366,7 @@ async def typewriter(typew):
     sleep(1)
     await typew.edit("✨")
     sleep(2)
-    await typew.edit("𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡!!\n\n"
+    await typew.edit(f"𝗜𝗡𝗙𝗢 𝗞𝗘𝗞𝗨𝗔𝗧𝗔𝗡!! {REPO_NAME}\n\n"
                      "╭✠╼━━━━━━❖━━━━━━━✠╮\n"
                      "┣[•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗦𝗔𝗔𝗧 𝗜𝗡𝗜 :\n"
                      "┣[• ▸ 999 ᴊᴀᴍ - 999 ᴍᴇɴɪᴛ.\n" 
@@ -378,27 +377,28 @@ async def typewriter(typew):
                      "┣[•𝗣𝗘𝗡𝗚𝗚𝗨𝗡𝗔𝗔𝗡 𝗕𝗨𝗟𝗔𝗡 𝗜𝗡𝗜 :\n"
                      "┣[• ▸ `999999` ᴊᴀᴍ - `999999` ᴍᴇɴɪᴛ.\n"
                      "┣[• ▸ ᴘʀᴇꜱᴇɴᴛᴀꜱᴇ : 1000%.\n"
-                     "╰✠╼━━━━━━❖━━━━━━━✠╯")
+                     "╰✠╼━━━━━━❖━━━━━━━✠╯\n"
+                     f"𝗣𝗘𝗠𝗜𝗟𝗜𝗞  : {ALIVE_NAME}")
 
 
 @register(outgoing=True, pattern='^.oy(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("**Woi....**")
+    await typew.edit("**hy...**")
     sleep(3)
-    await typew.edit("**Grup banyak anggota yakan**")
+    await typew.edit("**Nama Aku Karinaa**")
     sleep(1)
-    await typew.edit("**Tapi ga ada yg nimbrung..**")
+    await typew.edit("**Banyak Yang panggil Aku Queen Karina**")
     sleep(1)
-    await typew.edit("**Kan tolol bgt, Jadi sepi kan**")
+    await typew.edit("**Karna aku cantik banget gengss.**")
     sleep(1)
-    await typew.edit("**Nimbrung tololl, Nimbrung!!**")
+    await typew.edit("**Bcanda Bcanda awkwkkw**")
     sleep(2)
-    await typew.edit("**Sombong amat punya jempol,Gamau nimbrung**")
+    await typew.edit("**Aku Ga sombong Woi**")
     sleep(1)
-    await typew.edit("**Jempol lu kebas? Apa dah putus?**")
+    await typew.edit("**Aku Cuma mau bilang**")
     sleep(2)
-    await typew.edit("**NIMBRUNGGG GOBLOK!!!!**")
+    await typew.edit("**GJM!!!!**")
 
 
 @register(outgoing=True, pattern='^.gi(?: |$)(.*)')
@@ -406,7 +406,7 @@ async def typewriter(typew):
     typew.pattern_match.group(1)
     await typew.edit("**Mutualan Yukkk!...**")
     sleep(2)
-    await typew.edit("𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌= [𝐓𝐄𝐊𝐀𝐍](https://www.instagram.com/ramadh20?r=nametag)")
+    await typew.edit(f"𝐈𝐍𝐒𝐓𝐀𝐆𝐑𝐀𝐌= [𝐓𝐄𝐊𝐀𝐍]({IG_ALIVE})")
 
 
 @register(outgoing=True, pattern='^.fck(?: |$)(.*)')

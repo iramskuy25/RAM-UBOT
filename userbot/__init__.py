@@ -1,10 +1,18 @@
-""" Userbot initialization. """
+# Copyright (C) 2019 The Raphielscape Company LLC.
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# you may not use this file except in compliance with the License.
+# Credits @keselekpermen69 / @Ultroid / @RAM-UBOT
+# Ported @MaafGausahSokap / JANGAN DI APUS BABI
+"""Userbot initialization."""
 
-import logging
 import os
 import time
 import re
 import redis
+import io
+import random
+
+from datetime import datetime
 
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -19,6 +27,8 @@ from dotenv import load_dotenv
 from requests import get
 from telethon.sync import TelegramClient, custom, events
 from telethon.sessions import StringSession
+from telethon import Button, events, functions, types
+from telethon.utils import get_display_name
 
 redis_db = None
 
@@ -75,14 +85,6 @@ BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", ""))
 BOTLOG = sb(os.environ.get("BOTLOG", "True"))
 LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
 
-# Custom Module
-CUSTOM_PMPERMIT_TEXT = os.environ.get("CUSTOM_PMPERMIT_TEXT", None)
-
-# Pm Permit Img
-PM_PERMIT_PIC = os.environ.get(
-    "PM_PERMIT_PIC",
-    None) or "https://telegra.ph/file/5e197cb47a4168c39f78f.jpg"
-
 # Bleep Blop, this is a bot ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
@@ -135,9 +137,9 @@ if REDIS_URI and REDIS_PASSWORD:
         )
         redis_connection.ping()
     except Exception as e:
-        logging.exception(e)
+        LOGGER.exception(e)
         print()
-        logging.error(
+        LOGGER.error(
             "Make sure you have the correct Redis endpoint and password "
             "and your machine can make connections."
         )
@@ -172,8 +174,11 @@ ANTI_SPAMBOT_SHOUT = sb(os.environ.get("ANTI_SPAMBOT_SHOUT", "False"))
 # Youtube API key
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
 
-# Untuk Perintah .rambot
-RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM", None)
+# Untuk Perintah .rambot (alive)
+RAM_TEKS_KOSTUM = os.environ.get("RAM_TEKS_KOSTUM") or "ㅤ"
+
+# Untuk Melihat Repo
+REPO_NAME = os.environ.get("REPO_NAME") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 # Default .alive Name
 ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
@@ -207,9 +212,28 @@ S_PACK_NAME = os.environ.get("S_PACK_NAME", None)
 ALIVE_LOGO = os.environ.get(
     "ALIVE_LOGO") or "https://telegra.ph/file/5e197cb47a4168c39f78f.jpg"
 
+# Default .helpme logo
+HELP_LOGO = os.environ.get(
+   "HELP_LOGO") or "https://telegra.ph/file/5daa73aa6d1afbd1da353.jpg"
+
+# Default .alive Instagram
+IG_ALIVE = os.environ.get("IG_ALIVE") or "instagram.com/ramadh20"
+
+# Default emoji help
+EMOJI_HELP = os.environ.get("EMOJI_HELP") or "💫"
+
+# Default .alive Group
+GROUP_LINK = os.environ.get(
+    "GROUP_LINK") or "t.me/teman_random"
+
+# Default .repo Bot
+OWNER_BOT = os.environ.get(
+    "OWNER_BOT") or "t.me/MaafGausahSokap"
+
+
 # Last.fm Module
 BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
-DEFAULT_BIO = os.environ.get("DEFAULT_BIO", None)
+DEFAULT_BIO = os.environ.get("DEFAULT_BIO") or "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐"
 
 LASTFM_API = os.environ.get("LASTFM_API", None)
 LASTFM_SECRET = os.environ.get("LASTFM_SECRET", None)
@@ -249,8 +273,9 @@ CMD_HELP = {}
 # Quotes API Token
 QUOTES_API_TOKEN = os.environ.get("QUOTES_API_TOKEN", None)
 
-# Wolfram Alpha API
-WOLFRAM_ID = os.environ.get("WOLFRAM_ID") or None
+# Defaul botlog msg
+BOTLOG_MSG = os.environ.get(
+    "BOTLOG_MSG") or "```║DAH AKTIF YA NGENTOT!!🔥🔥║\n\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\nJika Tidak Bisa Di .ping\nSilahkan Anda\nCek viewlogs\nPada heroku Anda.\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰```"
 
 # Deezloader
 DEEZER_ARL_TOKEN = os.environ.get("DEEZER_ARL_TOKEN", None)
@@ -351,7 +376,7 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_message(BOTLOG_CHATID, "```║RAM-UBOT TELAH AKTIF!║\n\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰\nJika Tidak Bisa Di .ping\nSilahkan Anda Cek Viewlogs\nPada heroku Anda.\n▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰```")
+    await bot.send_message(BOTLOG_CHATID, f"{BOTLOG_MSG}")
     return
 
 with bot:
@@ -374,24 +399,26 @@ ISAFK = False
 AFKREASON = None
 ZALG_LIST = {}
 
+#Import Userbot - Ported by RAMADHANI892
+from userbot import (
+    ALIVE_NAME
+)
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
 
-
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
-    number_of_cols = 4
+    number_of_cols = 2
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        custom.Button.inline("{} {} 💫".format("💫", x), data="ub_modul_{}".format(x))
+        custom.Button.inline("{} {} {} ".format(f"{EMOJI_HELP}", x, f"{EMOJI_HELP}"), data="ub_modul_{}".format(x))
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols],
-                     modules[1::number_of_cols],
-                     modules[2::number_of_cols]))
+                     modules[1::number_of_cols]))
     if len(modules) % number_of_cols == 1:
         pairs.append((modules[-1],))
     max_num_pages = ceil(len(pairs) / number_of_rows)
@@ -402,10 +429,13 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 custom.Button.inline(
-                    "↩️", data="{}_prev({})".format(prefix, modulo_page)
+                    "< ̤< ̤", data="{}_prev({})".format(prefix, modulo_page)
                 ),
                 custom.Button.inline(
-                    "↪️", data="{}_next({})".format(prefix, modulo_page)
+                    f"{EMOJI_HELP} 𝗖𝗟𝗢𝗦𝗘 {EMOJI_HELP}", data="{}_close({})".format(prefix, modulo_page)
+                ),
+                custom.Button.inline(
+                    "> ̤> ̤", data="{}_next({})".format(prefix, modulo_page)
                 )
             )
         ]
@@ -423,51 +453,99 @@ with bot:
         dugmeler = CMD_HELP
         me = bot.get_me()
         uid = me.id
-        logo = "https://telegra.ph/file/be5a4a2cb6aac37ca7945.jpg"
+
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile("open")
+            )
+        )
+        async def opeen(event):
+            try:
+                tgbotusername = BOT_USERNAME
+                if tgbotusername is not None:
+                    results = await event.client.inline_query(tgbotusername, "@Ram_ubot")
+                    await results[0].click(
+                        event.chat_id, reply_to=event.reply_to_msg_id, hide_via=True
+                    )
+                    await event.delete()
+                else:
+                    await event.edit(
+                        "`The bot doesn't work! Please set the Bot Token and Username correctly. The module has been stopped.`"
+                    )
+            except Exception:
+                return await event.edit(
+                    "`You cannot send inline results in this chat (caused by SendInlineBotResultRequest)`"
+                )
+
+
+        ramlogo = HELP_LOGO
+        plugins = CMD_HELP
+        vr = BOT_VER
 
         @tgbot.on(events.NewMessage(pattern="/start"))
         async def handler(event):
             if event.message.from_id != uid:
-                await event.reply("\n⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐, Buat Userbot Mu Sendiri [Tekan Disini](https://github.com/Ramadhani892)")
-            else:
-                await event.reply(f"`Hai {DEFAULTUSER}\n\nApa Kabarmu ? 😊`")
+                u = await event.client.get_entity(event.chat_id)
+                await event.reply(
+                    f"WOI NGENTOT [{get_display_name(u)}](tg://user?id={u.id}) NGAPAIN LU DI\n**RAM-UBOT**\nKALO MAU TAU LEBIH DETAIL MENDING LU KE\n**𝗚𝗥𝗢𝗨𝗣 𝗦𝗨𝗣𝗣𝗢𝗥𝗧** Dibawah Ini.\n",
+                    buttons=[
+                        [
+                             Button.url(f"{EMOJI_HELP} 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 {EMOJI_HELP}",
+                                        "t.me/Ramubotinfo"),
+                             Button.url(f"{EMOJI_HELP} 𝗚𝗥𝗢𝗨𝗣 𝗦𝗨𝗣𝗣𝗢𝗥𝗧 {EMOJI_HELP}",
+                                        "t.me/geezSupportGroup")],
+                             [Button.url("👤 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 👤",
+                                        "t.me/MaafGausahSokap")],
+                    ]
+                )
+
+
+        @tgbot.on(events.NewMessage(pattern="/ping"))
+        async def handler(event):
+            if event.message.from_id != uid:
+                start = datetime.now()
+                end = datetime.now()
+                ms = (end - start).microseconds / 1000
+                await tgbot.send_message(
+                    event.chat_id,
+                    f"**NGENTOT!!**\n `{ms}ms`",
+                )
 
         @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
             builder = event.builder
             result = None
             query = event.text
-            if event.query.user_id == uid and query.startswith("@UserButt"):
+            if event.query.user_id == uid and query.startswith("@Ram_ubot"):
                 buttons = paginate_help(0, dugmeler, "helpme")
-                result = builder.article(
-                    "Harap Gunakan .help Untuk Perintah",
-                    text="{}"
-                    f"\n\n**𝙿𝙴𝙼𝙸𝙻𝙸𝙺 𝙱𝙾𝚃 : {DEFAULTUSER}**\n\n"
-                    " **𝙼𝙾𝙳𝚄𝙻𝙴𝚂 :** `{}`\n **𝚂𝙴𝙼𝚄𝙰 𝙼𝙴𝙽𝚄 :** \n".format(
-                        "** ━━━━━━❖━━━━━━\n    ⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐\n ━━━━━━❖━━━━━━ **",
+                result = builder.photo(
+                    file=ramlogo,
+                    link_preview=False,
+                    text=f"{REPO_NAME}\n\n𝗣𝗘𝗠𝗜𝗟𝗜𝗞 𝗕𝗢𝗧 : {DEFAULTUSER}\n\n💫 𝗩𝗘𝗥𝗦𝗜 𝗕𝗢𝗧 :** `7.0`\n💫 𝗠𝗢𝗗𝗨𝗟𝗘𝗦 : `{len(plugins)}`\n\n🔥 𝗗𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 : [{DEFAULTUSER}]({OWNER_BOT}) ".format(
                         len(dugmeler),
                     ),
                     buttons=buttons,
-                    link_preview=False,
                 )
             elif query.startswith("tb_btn"):
                 result = builder.article(
-                    "Bantuan Dari ━━━━━━❖━━━━━━\n    ⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐\n ━━━━━━❖━━━━━━ ",
-                    text="Daftar Modul",
+                    f"Bantuan Dari {REPO_NAME} ",
+                    text="Daftar Plugins",
                     buttons=[],
                     link_preview=True)
             else:
                 result = builder.article(
-                    " ━━━━━━❖━━━━━━\n     ⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐\n ━━━━━━❖━━━━━━ ",
-                    text="""╭✠╼━━━━━━❖━━━━━━━✠╮\n**Anda Bisa Membuat \n⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐\n Anda Sendiri Dengan Cara :**\n __Tekan Dibawah Ini__ 👇\n╰✠╼━━━━━━❖━━━━━━━✠╯""",
+                    f" ━━━━━━━❖━━━━━━━━\n       {REPO_NAME}\n━━━━━━━❖━━━━━━━━ ",
+                    text=f"""**━━━━━━━❖━━━━━━━━\nLU BIKIN \n{REPO_NAME}\nSENDIRI DONG NGENTOT!!\n━━━━━━━❖━━━━━━━━\nNIH CARANYA:**__TEKEN DIBAWAH INI NGENTOT!__ 👇""",
                     buttons=[
                         [
                             custom.Button.url(
-                                "⭐𝗥𝗔𝗠-𝗨𝗕𝗢𝗧⭐",
+                                f"{REPO_NAME}",
                                 "https://github.com/ramadhani892/RAM-UBOT"),
                             custom.Button.url(
-                                "⭐𝗢𝗪𝗡𝗘𝗥⭐",
-                                "t.me/ramubotinfo")]],
+                                "LANDAK",
+                                f"{OWNER_BOT}")] 
+                    ],
                     link_preview=False,
                 )
             await event.answer([result] if result else None)
@@ -486,8 +564,36 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"WOI NGENTOT!! JANGAN PAKE PUNYA {DEFAULTUSER} DONG BABI."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+
+        @tgbot.on(
+            events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+                data=re.compile(rb"helpme_close\((.+?)\)")
+            )
+        )
+        async def on_plug_in_callback_query_handler(event):
+            if event.query.user_id == uid:  # @Ram-ubot
+                # https://t.me/TelethonChat/115200
+                await event.edit(
+                    file=ramlogo,
+                    link_preview=True,
+                    buttons=[
+                        [
+                            Button.url(f"{REPO_NAME}",
+                                       "t.me/ramubotinfo"),
+                            Button.url(f"{EMOJI_HELP} SUPPORT {EMOJI_HELP} ", 
+                                       "t.me/GeezSupportGroup")],
+                        [Button.url(f"{EMOJI_HELP} OWNER {EMOJI_HELP} ",
+                                    f"{OWNER_BOT}"),
+                            Button.url(f"{EMOJI_HELP} INSTAGRAM {EMOJI_HELP} ",
+                                   f"{IG_ALIVE}")],
+                        [custom.Button.inline(
+                            f"{EMOJI_HELP} 𝗘𝗫𝗜𝗧 {EMOJI_HELP}", b"close")],
+                    ]
+                )
+
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -504,12 +610,13 @@ with bot:
                 # https://t.me/TelethonChat/115200
                 await event.edit(buttons=buttons)
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Jangan Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"WOI NGENTOT!! JANGAN PAKE PUNYA {DEFAULTUSER} DONG BABI."
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
 
         @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
-                data=re.compile(b"ub_modul_(.*)")
+                data=re.compile(rb"ub_modul_(.*)")
             )
         )
         async def on_plug_in_callback_query_handler(event):
@@ -520,7 +627,7 @@ with bot:
                 if len(cmdhel) > 150:
                     help_string = (
                         str(CMD_HELP[modul_name]).replace('`', '')[:150] + "..."
-                        + "\n\nBaca Teks Berikutnya Ketik .help "
+                        + "\n\nBaca Text Berikutnya Ketik .help "
                         + modul_name
                         + " "
                     )
@@ -535,19 +642,24 @@ with bot:
                     )
                 )
             else:
-                reply_pop_up_alert = f"🚫!WARNING!🚫 Dilarang Menggunakan Milik {DEFAULTUSER}."
+                reply_pop_up_alert = f"WOI NGENTOT!! JANGAN PAKE PUNYA {DEFAULTUSER} DONG BABI."
 
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+        @tgbot.on(events.CallbackQuery(data=b"close"))
+        async def close(event):
+            await event.edit("Menu di tutup!\nUntuk Melihat Menu, Silahkan Ketik `.rhelp`", buttons=Button.clear())
+
 
     except BaseException:
         LOGS.info(
             "Mode Inline Bot Mu Nonaktif. "
-            "Untuk Mengaktifkan Pergi Ke @BotFather, lalu settings bot > pilih mode inline > Turn On. ")
+            "Untuk Mengaktifkannya, Silahkan Pergi Ke @BotFather Lalu, Settings Bot > Pilih Mode Inline > Turn On. ")
     try:
         bot.loop.run_until_complete(check_botlog_chatid())
     except BaseException:
         LOGS.info(
-            "BOTLOG_CHATID environment variable isn't a "
-            "valid entity. Check your environment variables/config.env file."
+            "BOTLOG_CHATID Environment Variable Isn't a "
+            "Valid Entity. Please Check Your Environment variables/config.env File."
         )
         quit(1)
